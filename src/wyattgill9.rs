@@ -1,29 +1,52 @@
 use num_bigint::BigUint;
-use num_traits::{One, Zero};
 
-pub fn fib(n: usize) -> BigUint {
-    let (f_n, _) = fib_pair(n);
-    f_n
+#[derive(Clone)]
+struct FibPair {
+    a: BigUint,
+    b: BigUint,
 }
 
-fn fib_pair(n: usize) -> (BigUint, BigUint) {
-    let mut a = BigUint::zero();
-    let mut b = BigUint::one();
-
-    let mut mask = 1 << (usize::BITS - n.leading_zeros() - 1);
-    while mask > 0 {
-        let c = &a * ((&b << 1) - &a);
-        let d = &a * &a + &b * &b;
-
-        if n & mask == 0 {
-            a = c;
-            b = d;
-        } else {
-            // Performace is lost here:
-            a = d.clone();
-            b = &c + &d;
+impl FibPair {
+    #[inline(always)]
+    fn new(a: u32, b: u32) -> Self {
+        FibPair {
+            a: BigUint::from(a),
+            b: BigUint::from(b),
         }
-        mask >>= 1;
     }
-    (a, b)
+
+    #[inline(always)]
+    fn square(&mut self) {
+        let a_squared = &self.a * &self.a;
+        let b_squared = &self.b * &self.b;
+        let mut double_ab = &self.a * &self.b;
+        double_ab <<= 1;
+
+        self.a = a_squared + &b_squared;
+        self.b = double_ab + &b_squared;
+    }
+
+    #[inline(always)]
+    fn step(&mut self) {
+        self.a = std::mem::take(&mut self.b);
+        self.b += &self.a;
+    }
+}
+
+pub fn fib(n: usize) -> BigUint {
+    if n <= 1 {
+        return BigUint::from(n);
+    }
+
+    let mut pair = FibPair::new(1, 0);
+    let bits = usize::BITS - n.leading_zeros();
+
+    for i in (0..bits).rev() {
+        pair.square();
+        if (n & (1 << i)) != 0 {
+            pair.step();
+        }
+    }
+
+    pair.b
 }
