@@ -48,6 +48,8 @@ The sequence begins as:
 
 | Rank | Github      |    Time   |
 |------|-------------|-----------|
+| 1    | wyattgill9  | 14.804 ms |
 | 1    | bend-n      | 14.874 ms |
 | 2    | example     | 3.7556 s  |   
+
 

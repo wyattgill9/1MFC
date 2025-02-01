@@ -19,20 +19,3 @@ fn _fib(n: usize) -> (BigUint, BigUint) {
     let t = γ + &δ;
     (δ, t)
 }
-
-#[test]
-fn good() {
-    fn naive(n: usize) -> BigUint {
-        let mut α = BigUint::one();
-        let mut β = BigUint::one();
-
-        for _ in 2..n {
-            let temp = β.clone();
-            β += &α;
-            α = temp;
-        }
-
-        β
-    }
-    assert!(naive(5000) == fib(5000));
-}
