@@ -1,7 +1,7 @@
 # The 1 Millionth Fibonacci Challenge
 
 ## Introduction
-The 1 Millionth Fibonacci Challenge is a Rust-based competition where participants submit a pull request (PR) attempting to compute the 1 Millionth Fibonacci number (F(1,000,000)) as efficiently as possible. The goal is to achieve the fastest computation time using Rust.
+The 1 Millionth Fibonacci Challenge is a Rust-based competition where participants submit a pull request (PR) attempting to compute the 1 Millionth Fibonacci number F(1,000,000) as efficiently as possible. The goal is to achieve the fastest computation time using Rust.
 
 ## The Fibonacci Sequence
 The Fibonacci sequence is a series of numbers where each term is the sum of the two preceding ones. It is defined recursively as follows:
@@ -49,4 +49,5 @@ The sequence begins as:
 | Rank | Github      |    Time   |
 |------|-------------|-----------|
 | 1    | bend-n      | 14.874 ms |
+| 2    | example     | 3.7556 s  |   
 
