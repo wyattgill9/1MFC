@@ -1,7 +1,7 @@
 use criterion::{Criterion, criterion_group, criterion_main};
 use onebfc::*;
 
-fn bench_fib(c: &mut Criterion) {
+fn fib_bench(c: &mut Criterion) {
     c.bench_function("fib 1_000_000", |b| b.iter(|| fibonacci(1000000)))
         .sample_size(10)
         .warm_up_time(std::time::Duration::from_millis(100));
