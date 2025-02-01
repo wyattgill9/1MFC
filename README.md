@@ -37,7 +37,6 @@ The sequence begins as:
 4. **Output Requirements:**
    - The full number must be computed if feasible.
    - If full computation is impractical, the last 10 digits must be correctly computed.
-   - IEEE 754 "roundTowardPositive" rounding must be used where applicable.
 
 ### Performance Constraints
 1. **Memory Usage:** Implementations must not require excessive memory.
