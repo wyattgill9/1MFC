@@ -48,5 +48,5 @@ The sequence begins as:
 
 | Rank | Github      |    Time   |
 |------|-------------|-----------|
-| 1    | wyattgill9  | 100       |
+| 1    | bend-n      | 14.874 ms |
 
