@@ -25,14 +25,14 @@ The sequence begins as:
 1. **Objective:** Submit a Rust PR that computes the 1 Millionth Fibonacci number as efficiently as possible.
 2. **Allowed Methods:** Any computational method is allowed, including algorithmic optimizations and parallel computing, as long as it runs in Rust.
 3. **Language Restriction:** Only Rust is allowed.
-4. **Submission Format:** PRs must include code, benchmarking results, and a description of the approach used.
+4. **Submission Format:** PRs must include code! the benchmark will be made when the workflow is approved!
 5. **Time Limit:** Solutions must complete within a reasonable execution time.
 6. **Verification:** Submissions will be tested for correctness and performance.
 7. **Leaderboard:** The fastest verified solution will be displayed on a public leaderboard.
 
 ### Implementation Constraints
 1. **External Libraries:** No external dependencies may be used (only Rust’s standard library is allowed).
-2. **File Structure:** Implementations Edit the `src/code.rs` with your code and submit the PR!
+2. **File Structure:** Implementations, add a file `src/github_user.rs` with your code, edit `benches/fib_bench.rs` with your solution, (import and use the fib_bench function) and submit the PR! Example can be found at `src/code.rs`
 3. **Computation Time:** The Fibonacci computation must happen at runtime—precomputed values or build-time optimizations are not allowed.
 4. **Output Requirements:**
    - The full number must be computed if feasible.
