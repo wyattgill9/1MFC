@@ -6,7 +6,7 @@ fn fib_bench(c: &mut Criterion) {
 }
 
 fn criterion_config() -> Criterion {
-    Criterion::default().sample_size(1);
+    Criterion::default().sample_size(1)
 }
 
 
