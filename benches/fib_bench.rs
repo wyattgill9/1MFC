@@ -7,7 +7,7 @@ fn fib_bench(c: &mut Criterion) {
 }
 
 // BASELINE: 
-fn fib_bench(c: &mut Criterion) {
+fn baseline_bench(c: &mut Criterion) {
     c.bench_function("fib 1_000_000", |b| b.iter(|| code::fib(1000000)));
 }
 
