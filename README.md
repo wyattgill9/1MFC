@@ -1,7 +1,7 @@
-# The 1 Billionth Fibonacci Challenge
+# The 1 Millionth Fibonacci Challenge
 
 ## Introduction
-The 1 Billionth Fibonacci Challenge is a Rust-based competition where participants submit a pull request (PR) attempting to compute the 1 billionth Fibonacci number (F(1,000,000,000)) as efficiently as possible. The goal is to achieve the fastest computation time using Rust.
+The 1 Millionth Fibonacci Challenge is a Rust-based competition where participants submit a pull request (PR) attempting to compute the 1 Millionth Fibonacci number (F(1,000,000)) as efficiently as possible. The goal is to achieve the fastest computation time using Rust.
 
 ## The Fibonacci Sequence
 The Fibonacci sequence is a series of numbers where each term is the sum of the two preceding ones. It is defined recursively as follows:
@@ -22,7 +22,7 @@ The sequence begins as:
 ## Rules and Limits
 
 ### General Rules
-1. **Objective:** Submit a Rust PR that computes the 1 billionth Fibonacci number as efficiently as possible.
+1. **Objective:** Submit a Rust PR that computes the 1 Millionth Fibonacci number as efficiently as possible.
 2. **Allowed Methods:** Any computational method is allowed, including algorithmic optimizations and parallel computing, as long as it runs in Rust.
 3. **Language Restriction:** Only Rust is allowed.
 4. **Submission Format:** PRs must include code, benchmarking results, and a description of the approach used.
@@ -32,7 +32,7 @@ The sequence begins as:
 
 ### Implementation Constraints
 1. **External Libraries:** No external dependencies may be used (only Rust’s standard library is allowed).
-2. **File Structure:** Implementations must be a single `.rs` situated within `./src` source file, under the format: `github_username.rs`
+2. **File Structure:** Implementations Edit the `src/code.rs` with your code and submit the PR!
 3. **Computation Time:** The Fibonacci computation must happen at runtime—precomputed values or build-time optimizations are not allowed.
 4. **Output Requirements:**
    - The full number must be computed if feasible.
@@ -44,6 +44,9 @@ The sequence begins as:
 3. **Benchmarking:** Performance will be measured on a modern CPU under identical conditions.
 4. **Fair Play:** Implementations must work for arbitrary large Fibonacci numbers.
 
-## Conclusion
-The 1 Billionth Fibonacci Challenge tests Rust performance, numerical computing, and optimization. Participants are encouraged to explore novel approaches, with the fastest solution earning a leaderboard spot.
+## Leaderboard
+
+| Rank | Github      |    Time   |
+|------|-------------|-----------|
+| 1    | wyattgill9  | 100       |
 

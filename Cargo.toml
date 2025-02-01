@@ -1,0 +1,22 @@
+[package]
+name = "onebfc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+num-bigint = "0.4.6"
+num-traits = "0.2.19"
+
+[dev-dependencies]
+criterion = "0.5.1"
+
+[[bench]]
+name = "fib_bench"
+harness = false
+
+[profile.bench]
+opt-level = 3
+lto = true
+strip = true
+codegen-units = 1
+panic = "abort"
