@@ -1,9 +1,9 @@
-use criterion::{Criterion, criterion_group, criterion_main};
+use criterion::{criterion_group, criterion_main, Criterion};
 use onebfc::*;
 
 // UPDATE THIS WITH YOUR OWN fib()
 fn fib_bench(c: &mut Criterion) {
-    c.bench_function("fib 1_000_000", |b| b.iter(|| bendn::fib(1000000)));
+    c.bench_function("fib 1_000_000", |b| b.iter(|| wyattgill9::fib(1000000)));
 }
 
 // BASELINE:

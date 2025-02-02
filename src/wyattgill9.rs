@@ -8,10 +8,10 @@ struct FibPair {
 
 impl FibPair {
     #[inline(always)]
-    fn new() -> Self {
+    fn new(a: u32, b: u32) -> Self {
         FibPair {
-            a: BigUint::from(1u32),
-            b: BigUint::from(0u32),
+            a: BigUint::from(a),
+            b: BigUint::from(b),
         }
     }
 
@@ -28,8 +28,9 @@ impl FibPair {
 
     #[inline(always)]
     fn step(&mut self) {
-        self.a = std::mem::take(&mut self.b);
-        self.b += &self.a;
+        let a_next = &self.a + &self.b; // Fibonacci step: a + b
+        self.a = std::mem::take(&mut self.b); // Update b to previous a
+        self.b = a_next; // Update b to the new value a + b
     }
 }
 
@@ -38,7 +39,7 @@ pub fn fib(n: usize) -> BigUint {
         return BigUint::from(n);
     }
 
-    let mut pair = FibPair::new();
+    let mut pair = FibPair::new(1, 0);
     let bits = usize::BITS - n.leading_zeros();
 
     for i in (0..bits).rev() {
@@ -49,4 +50,45 @@ pub fn fib(n: usize) -> BigUint {
     }
 
     pair.b
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_fib() {
+        assert_eq!(fib(0), BigUint::from(0u32));
+        assert_eq!(fib(1), BigUint::from(1u32));
+        assert_eq!(fib(2), BigUint::from(1u32));
+        assert_eq!(fib(3), BigUint::from(2u32));
+        assert_eq!(fib(4), BigUint::from(3u32));
+        assert_eq!(fib(5), BigUint::from(5u32));
+        assert_eq!(fib(6), BigUint::from(8u32));
+        assert_eq!(fib(7), BigUint::from(13u32));
+        assert_eq!(fib(8), BigUint::from(21u32));
+        assert_eq!(fib(9), BigUint::from(34u32));
+        assert_eq!(fib(10), BigUint::from(55u32));
+        assert_eq!(fib(11), BigUint::from(89u32));
+        assert_eq!(fib(12), BigUint::from(144u32));
+        assert_eq!(fib(13), BigUint::from(233u32));
+        assert_eq!(fib(14), BigUint::from(377u32));
+        assert_eq!(fib(15), BigUint::from(610u32));
+        assert_eq!(fib(16), BigUint::from(987u32));
+        assert_eq!(fib(17), BigUint::from(1597u32));
+        assert_eq!(fib(18), BigUint::from(2584u32));
+        assert_eq!(fib(19), BigUint::from(4181u32));
+        assert_eq!(fib(20), BigUint::from(6765u32));
+        assert_eq!(fib(21), BigUint::from(10946u32));
+        assert_eq!(fib(22), BigUint::from(17711u32));
+        assert_eq!(fib(23), BigUint::from(28657u32));
+        assert_eq!(fib(24), BigUint::from(46368u32));
+        assert_eq!(fib(25), BigUint::from(75025u32));
+        assert_eq!(fib(26), BigUint::from(121393u32));
+        assert_eq!(fib(27), BigUint::from(196418u32));
+        assert_eq!(fib(28), BigUint::from(317811u32));
+        assert_eq!(fib(29), BigUint::from(514229u32));
+        assert_eq!(fib(30), BigUint::from(832040u32));
+    }
 }
