@@ -8,10 +8,10 @@ struct FibPair {
 
 impl FibPair {
     #[inline(always)]
-    fn new(a: u32, b: u32) -> Self {
+    fn new() -> Self {
         FibPair {
-            a: BigUint::from(a),
-            b: BigUint::from(b),
+            a: BigUint::from(1u32),
+            b: BigUint::from(0u32),
         }
     }
 
@@ -38,7 +38,7 @@ pub fn fib(n: usize) -> BigUint {
         return BigUint::from(n);
     }
 
-    let mut pair = FibPair::new(1, 0);
+    let mut pair = FibPair::new();
     let bits = usize::BITS - n.leading_zeros();
 
     for i in (0..bits).rev() {
