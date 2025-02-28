@@ -3,7 +3,7 @@ use onebfc::*;
 
 // UPDATE THIS WITH YOUR OWN fib()
 fn fib_bench(c: &mut Criterion) {
-    c.bench_function("fib 1_000_000", |b| b.iter(|| wyattgill9::fib(1000000)));
+    c.bench_function("fib 1_000_000", |b| b.iter(|| wyattgill9::fib_luc(1_000_000).0));
 }
 
 // BASELINE:
